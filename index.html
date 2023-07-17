@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="./src/style.css">
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="mensaje-alerta" id="mensajes"></div>
+    <h1>Juego de las Siete y Media</h1>
+    <div class="btn-header">
+      <Button class="puntuacion-container">
+        Puntuación:
+        <span id="puntuacion">0</span>
+      </Button>
+      <button class="btn-planto" id="planto">Me planto</button>
+    </div>
+    <button id="dame" class="btn">Dame una carta</button>
+    <div>
+      <img src="/images/back.jpg" alt="Carta boca abajo" id="carta" class="img">
+    </div>
+    <button class="btn-comenzar" id="comenzar">Nueva partida</button>
+    <button class="despues-de-plantarse btn-despues" id="despues-plantarse">¿Qué habría pasado si hubieras seguido
+      jugando?</button>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
