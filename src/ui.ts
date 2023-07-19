@@ -31,7 +31,7 @@ export const pideCarta = () => {
         puntos.puntuacion === 7.5 &&
         mePlanto &&
         mePlanto instanceof HTMLButtonElement) {
-        mensajes.innerHTML = '¡Lo has clavado! ¡Enhorabuena!'
+        mensajes.textContent = '¡Lo has clavado! ¡Enhorabuena!'
         confetti.default()
         btnPideCarta.disabled = true
         btnPideCarta.classList.add('disabled-btn')
@@ -67,30 +67,39 @@ const muestraCarta = (carta: number): void => {
 
 const muestraPuntuacion = (): void => {
     if (elementoPuntuacion) {
-        elementoPuntuacion.innerHTML = puntos.puntuacion.toString()
+        elementoPuntuacion.textContent = puntos.puntuacion.toString()
     }
 }
 
 export const handleMePlanto = (): void => {
+    activarDeshactivarButton()
+    actualizarMensajes()
+}
+
+const activarDeshactivarButton = () => {
     if (btnPideCarta && btnPideCarta instanceof HTMLButtonElement && mensajes && mePlanto && despuesDePlantarse) {
         btnPideCarta.disabled = true
         btnPideCarta.classList.add('disabled-btn')
         mePlanto.classList.add('disabled-btn')
         despuesDePlantarse.classList.remove('despues-de-plantarse')
         if (puntos.puntuacion === 0) {
-            mensajes.innerHTML = 'Por favor, pide una carta'
+            mensajes.textContent = 'Por favor, pide una carta'
             btnPideCarta.disabled = false
             btnPideCarta.classList.remove('disabled-btn')
             mePlanto.classList.remove('disabled-btn')
             despuesDePlantarse.classList.add('despues-de-plantarse')
         }
-    } if (mensajes) {
+    }
+}
+
+const actualizarMensajes = () => {
+    if (mensajes) {
         if (puntos.puntuacion >= 0.5 && puntos.puntuacion < 4) {
-            mensajes.innerHTML = 'Has sido muy conservador'
-        } if (puntos.puntuacion >= 4 && puntos.puntuacion < 6) {
-            mensajes.innerHTML = 'Te ha entrado el canguelo eh?'
-        } if (puntos.puntuacion >= 6 && puntos.puntuacion < 7.5) {
-            mensajes.innerHTML = 'Casi casi....'
+            mensajes.textContent = 'Has sido muy conservador'
+        } else if (puntos.puntuacion >= 4 && puntos.puntuacion < 6) {
+            mensajes.textContent = 'Te ha entrado el canguelo eh?'
+        } else if (puntos.puntuacion >= 6 && puntos.puntuacion < 7.5) {
+            mensajes.textContent = 'Casi casi....'
         }
     }
 }
@@ -105,9 +114,9 @@ export const handleComenzar = (): void => {
         mensajes &&
         mePlanto instanceof HTMLButtonElement &&
         despuesDePlantarse) {
-        elementoPuntuacion.innerHTML = puntos.puntuacion.toString()
+        elementoPuntuacion.textContent = puntos.puntuacion.toString()
         elementoCarta.setAttribute('src', backImageSrc)
-        mensajes.innerHTML = ''
+        mensajes.textContent = ''
         btnPideCarta.disabled = false
         btnPideCarta.classList.remove('disabled-btn')
         mePlanto.classList.remove('disabled-btn')
@@ -131,7 +140,7 @@ export const gameOver = (): void => {
         btnPideCarta instanceof HTMLButtonElement &&
         mePlanto &&
         mePlanto instanceof HTMLButtonElement) {
-        mensajes.innerHTML = 'GAME OVER: LO SENTIMOS, LA PUNTUACION DEBE SER IGUAL O MENOR QUE 7.5'
+        mensajes.textContent = 'GAME OVER: LO SENTIMOS, LA PUNTUACION DEBE SER IGUAL O MENOR QUE 7.5'
         btnPideCarta.disabled = true
         btnPideCarta.classList.add('disabled-btn')
         mePlanto.classList.add('disabled-btn')

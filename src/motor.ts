@@ -9,15 +9,6 @@ export const generarCartaAleatoria = (): number => {
 }
 
 export const calcularPuntuacion = (cartaAleatoria: number): void => {
-    switch (cartaAleatoria) {
-        case 10:
-        case 11:
-        case 12:
-            puntos.puntuacion += 0.5
-            break
-        default:
-            puntos.puntuacion += cartaAleatoria
-            break
-    }
-}
+    puntos.puntuacion += cartaAleatoria === 10 || cartaAleatoria === 11 || cartaAleatoria === 12 ? 0.5 : cartaAleatoria;
+};
 
